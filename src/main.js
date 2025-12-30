@@ -27,9 +27,9 @@ const terminalOutput = document.getElementById('terminal-output');
 // Dicionário de Comandos
 const commands = {
     help: "Comandos disponíveis: about, stack, contact, clear, date",
-    about: "Estudante de ADS, apaixonado por cinema (A24/Sion Sono) e código limpo.",
+    about: "Estudante de ADS, fã de cinema e roupas.",
     stack: "Python | JavaScript | React Basics | SQL | Git",
-    contact: "Email: arthur@dev.com (Mande um oi!)",
+    contact: "Email: diasarthur.txt@gmail.com (Mande um oi!)",
     date: () => new Date().toLocaleString()
 };
 
