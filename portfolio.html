@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECTS | ARTHUR DIAS</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #e5e5e5;
+            --muted: #666666;
+            --line: #333333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Lato', sans-serif;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        /* Navegação Minimalista */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 20px;
+            margin-bottom: 60px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .brand {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.1em;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .back-link {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            transition: 0.3s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        /* Área do Projeto (Estilo Catálogo) */
+        .gallery {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Imagem na esquerda, Texto na direita */
+            gap: 50px;
+            margin-bottom: 100px;
+            align-items: center;
+        }
+
+        /* Moldura da Imagem */
+        .project-visual {
+            border: 1px solid var(--line);
+            padding: 10px;
+            transition: 0.5s;
+        }
+        
+        .project-visual:hover {
+            border-color: var(--text);
+        }
+
+        .project-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(100%); /* Charme preto e branco */
+            transition: 0.5s;
+        }
+
+        .project-visual:hover .project-img {
+            filter: grayscale(0%); /* Fica colorido quando passa o mouse */
+        }
+
+        /* Tipografia do Projeto */
+        .project-meta {
+            font-family: 'Cinzel', serif;
+            color: var(--muted);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .description {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .tech-list {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        /* Botões de Ação (Sóbrios) */
+        .actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-art {
+            text-decoration: none;
+            color: var(--text);
+            border: 1px solid var(--line);
+            padding: 12px 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: 0.3s;
+        }
+
+        .btn-art:hover {
+            background: var(--text);
+            color: var(--bg);
+            border-color: var(--text);
+        }
+
+        /* Botão do Terminal (Discreto) */
+        .terminal-trigger {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-family: 'Fira Code', monospace;
+            background: transparent;
+            border: 1px solid var(--line);
+            color: var(--muted);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+        .terminal-trigger:hover { border-color: var(--text); color: var(--text); }
+
+        /* Janela do Terminal (Agora Monochrome) */
+        #terminal-window {
+            position: fixed; bottom: 80px; right: 30px;
+            width: 450px; height: 300px;
+            background: #000;
+            border: 1px solid var(--text);
+            font-family: 'Fira Code', monospace; 
+            font-size: 0.85rem;
+            display: flex; flex-direction: column;
+            z-index: 100;
+            display: none; /* Começa escondido */
+        }
+        
+        .terminal-header {
+            background: #111;
+            padding: 8px;
+            border-bottom: 1px solid var(--line);
+            text-align: right;
+        }
+        
+        .terminal-body { padding: 15px; flex-grow: 1; overflow-y: auto; color: #ccc; }
+        .terminal-input-area { padding: 10px; border-top: 1px solid #333; display: flex; }
+        #terminal-input { background: transparent; border: none; color: #fff; width: 100%; outline: none; font-family: inherit; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .project-item { grid-template-columns: 1fr; gap: 20px; }
+            .project-visual { margin-bottom: 20px; }
+            #terminal-window { width: 90%; right: 5%; left: 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="brand">Arthur Dias</a>
+        <a href="index.html" class="back-link">Return to CV</a>
+    </nav>
+
+    <div class="gallery">
+        
+        <article class="project-item">
+            
+            <div class="project-visual">
+                <img src="src/assets/images/tictask.png" alt="TicTask Interface" class="project-img" onerror="this.style.display='none';this.parentElement.style.background='#111';this.parentElement.style.height='300px'">
+            </div>
+
+            <div class="project-info">
+                <div class="project-meta">Collection 2025 // Web App</div>
+                <h2>TicTask</h2>
+                <p class="description">
+                    Uma ferramenta de produtividade minimalista focada na gestão essencial de tarefas. 
+                    Projetada para eliminar ruídos visuais e maximizar o foco. 
+                    Utiliza persistência de dados local para privacidade total do usuário.
+                </p>
+                
+                <div class="tech-list">
+                    <span>JavaScript</span>
+                    <span>Local Storage</span>
+                    <span>CSS Grid</span>
+                </div>
+
+                <div class="actions">
+                    <a href="https://github.com/Theezy-I/TICTASK" target="_blank" class="btn-art">View Code</a>
+                    <a href="https://theezy-i.github.io/TICTASK/" target="_blank" class="btn-art">Live Demo</a>
+                </div>
+            </div>
+
+        </article>
+
+        </div>
+
+    <button class="terminal-trigger" id="cmd-btn">CMD_</button>
+
+    <div id="terminal-window">
+        <div class="terminal-header"><span id="close-cmd" style="cursor:pointer;">[X]</span></div>
+        <div class="terminal-body" id="term-out">
+            <p>System Ready.</p>
+            <p>Type 'help' for commands.</p>
+        </div>
+        <div class="terminal-input-area">
+            <span>></span>
+            <input type="text" id="term-in" autocomplete="off">
+        </div>
+    </div>
+
+    <script>
+        // Lógica Simples do Terminal (Vanilla JS)
+        const btn = document.getElementById('cmd-btn');
+        const win = document.getElementById('terminal-window');
+        const close = document.getElementById('close-cmd');
+        const input = document.getElementById('term-in');
+        const output = document.getElementById('term-out');
+
+        btn.onclick = () => { win.style.display = 'flex'; input.focus(); }
+        close.onclick = () => { win.style.display = 'none'; }
+
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const txt = this.value.toLowerCase().trim();
+                output.innerHTML += `<div>> ${txt}</div>`;
+                
+                let resp = "";
+                if(txt === 'help') resp = "COMMANDS: about, clear, cv";
+                else if(txt === 'about') resp = "Minimalist portfolio. 2026.";
+                else if(txt === 'cv') window.location.href = 'index.html';
+                else if(txt === 'clear') output.innerHTML = "";
+                else resp = "Unknown command.";
+
+                if(txt !== 'clear') output.innerHTML += `<div style="color:#888; margin-bottom:5px;">${resp}</div>`;
+                
+                this.value = "";
+                output.scrollTop = output.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
