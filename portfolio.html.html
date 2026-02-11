@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur | Software Developer</title>
+    
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="src/assets/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <span class="logo mono">&lt;Arthur/&gt;</span>
+            <nav>
+                <a href="#about">Sobre</a>
+                <a href="#projects">Projetos</a>
+                <a href="#contact" class="btn-outline">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container hero-content">
+                <p class="mono greeting">
+                    <span id="typewriter"></span><span class="cursor">|</span>
+                </p>
+                <h1>Portfolio <br> <span class="highlight">digital</span>.</h1>
+                <p class="bio">
+                    Estudante de ADS (6º Semestre). Bilingue. 
+                    Focado em Python, Web e projetos.
+                </p>
+                <div class="tech-stack">
+                    <span class="badge">Python</span>
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">SQL</span>
+                    <span class="badge">React</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title mono">01. Projetos</h2>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>TicTask</h3>
+                        <p>Plataforma de produtividade focada em gestão de tarefas (To-Do) com persistência de dados local. Interface minimalista para foco total.</p>
+                        <ul class="tech-list mono">
+                            <li>JavaScript ES6</li>
+                            <li>Local Storage</li>
+                            <li>CSS3 Grid</li>
+                        </ul>
+                        <div class="socials">
+                            <a href="https://github.com/Theezy-I/TICTASK" target="_blank">CODE</a>
+                            <a href="https://theezy-i.github.io/TICTASK/" target="_blank">DEMO</a>
+                        </div>
+                    </div>
+                    <div class="project-img">
+                        <div> <img src="src/assets/images/tictask.png" alt="TicTask Preview" style="width:100%; border-radius:4px;"></div> 
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="terminal-toggle" title="Abrir Terminal System">
+        <i class="fas fa-terminal"></i>
+    </div>
+
+    <div id="terminal-window" class="hidden">
+        <div class="terminal-header">
+            <div class="dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">arthur@portfolio:~$</span>
+            <span id="close-terminal">X</span>
+        </div>
+        <div class="terminal-body" id="terminal-output">
+            <p>ArthurOS v1.0.5 [System Ready]</p>
+            <p>Digite 'help' para ver os comandos.</p>
+        </div>
+        <div class="terminal-input-area">
+            <span class="prompt">></span>
+            <input type="text" id="terminal-input" autocomplete="off" autofocus>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="container">
+            <p class="mono">© 2025 Arthur. Brasília/DF.</p>
+        </div>
+    </footer>
+
+    <script src="src/main.jsx"></script>
+</body>
+</html>
